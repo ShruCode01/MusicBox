@@ -1,0 +1,51 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#121212;
+
+}
+.container{
+
+    width:95%;
+
+    max-width:1400px;
+
+    height:90vh;
+
+    display:flex;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    background:#1b1b2d;
+
+}
+.sidebar{
+
+    width:300px;
+
+    background:#101827;
+
+}
+.player{
+
+    flex:1;
+
+    background:#252540;
+
+}
