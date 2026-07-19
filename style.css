@@ -49,3 +49,139 @@ body{
     background:#252540;
 
 }
+.sidebar{
+
+    width:300px;
+
+    background:#151928;
+
+    padding:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:40px;
+
+}
+
+.logo i{
+
+    font-size:40px;
+
+    color:#7c5cff;
+
+}
+
+.logo h2{
+
+    color:white;
+
+}
+
+.logo p{
+
+    color:#999;
+
+    font-size:14px;
+
+}
+.playlist h3{
+
+    color:white;
+
+    margin-bottom:20px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-size:14px;
+
+}
+.song-list{
+
+    list-style:none;
+
+}
+.song{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+}
+.song:hover{
+
+    background:#252540;
+
+}
+.active{
+
+    background:#7c5cff;
+
+}
+.song img{
+
+    width:55px;
+
+    height:55px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+}
+.song-info h4{
+
+    color:white;
+
+    font-size:15px;
+
+}
+
+.song-info p{
+
+    color:#b0b0b0;
+
+    font-size:13px;
+
+}
+.favorite{
+
+    margin-top:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:#7c5cff;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+}
