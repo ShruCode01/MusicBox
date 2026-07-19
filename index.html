@@ -1,219 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Music Player</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
     <!-- Font Awesome -->
 
     <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <div class="container">
+      <!-- Sidebar -->
 
-        <!-- Sidebar -->
+      <aside class="sidebar">
+        <!-- Logo -->
 
-        <aside class="sidebar">
+        <div class="logo">
+          <i class="fa-solid fa-music"></i>
 
-    <!-- Logo -->
-
-    <div class="logo">
-
-        <i class="fa-solid fa-music"></i>
-
-        <div>
-
+          <div>
             <h2>Melody Fun</h2>
 
             <p>Feel the Music</p>
-
+          </div>
         </div>
 
-    </div>
+        <!-- Playlist -->
 
-    <!-- Playlist -->
+        <div class="playlist">
+          <h3>Playlist</h3>
 
-    <div class="playlist">
-
-        <h3>Playlist</h3>
-
-        <ul class="song-list">
-
+          <ul class="song-list">
             <li class="song active">
+              <img src="/images/cover1.jpg" alt="cover" />
 
-                <img src="/images/cover1.jpg"
-                     alt="cover">
+              <div class="song-info">
+                <h4>Blinding Lights</h4>
 
-                <div class="song-info">
-
-                    <h4>Blinding Lights</h4>
-
-                    <p>The Weeknd</p>
-
-                </div>
-
+                <p>The Weeknd</p>
+              </div>
             </li>
 
             <li class="song">
+              <img src="/images/cover2.jpg" alt="cover" />
 
-                <img src="/images/cover2.jpg"
-                     alt="cover">
+              <div class="song-info">
+                <h4>Perfect</h4>
 
-                <div class="song-info">
-
-                    <h4>Perfect</h4>
-
-                    <p>Ed Sheeran</p>
-
-                </div>
-
+                <p>Ed Sheeran</p>
+              </div>
             </li>
 
             <li class="song">
+              <img src="/images/cover3.jpg" alt="cover" />
 
-                <img src="/images/cover3.jpg"
-                     alt="cover">
+              <div class="song-info">
+                <h4>Believer</h4>
 
-                <div class="song-info">
-
-                    <h4>Believer</h4>
-
-                    <p>Imagine Dragons</p>
-
-                </div>
-
+                <p>Imagine Dragons</p>
+              </div>
             </li>
+          </ul>
+        </div>
 
-        </ul>
+        <!-- Favourite -->
 
-    </div>
+        <div class="favorite">
+          <i class="fa-solid fa-heart"></i>
 
-    <!-- Favourite -->
+          <span>Favourite Songs</span>
+        </div>
+      </aside>
 
-    <div class="favorite">
+      <!-- Main Player -->
+      <main class="player">
+        <!-- Album Cover -->
 
-        <i class="fa-solid fa-heart"></i>
+        <div class="album">
+          <img src="assets/images/cover1.jpg" alt="Album Cover" id="cover" />
+        </div>
 
-        <span>Favourite Songs</span>
+        <!-- Song Details -->
 
-    </div>
+        <div class="song-details">
+          <h1 id="title">Blinding Lights</h1>
 
-</aside>
+          <p id="artist">The Weeknd</p>
+        </div>
 
-        <!-- Main Player -->
-         <main class="player">
+        <!-- Progress -->
 
-    <!-- Album Cover -->
+        <div class="progress-area">
+          <span id="current-time"> 0:00 </span>
 
-    <div class="album">
+          <input type="range" id="progress" min="0" max="100" value="0" />
 
-        <img src="assets/images/cover1.jpg"
-             alt="Album Cover"
-             id="cover">
+          <span id="duration"> 3:20 </span>
+        </div>
 
-    </div>
+        <!-- Controls -->
 
-    <!-- Song Details -->
-
-    <div class="song-details">
-
-        <h1 id="title">
-
-            Blinding Lights
-
-        </h1>
-
-        <p id="artist">
-
-            The Weeknd
-
-        </p>
-
-    </div>
-
-    <!-- Progress -->
-
-    <div class="progress-area">
-
-        <span id="current-time">
-
-            0:00
-
-        </span>
-
-        <input
-            type="range"
-            id="progress"
-            min="0"
-            max="100"
-            value="0">
-
-        <span id="duration">
-
-            3:20
-
-        </span>
-
-    </div>
-
-    <!-- Controls -->
-
-    <div class="controls">
-
-        <button id="prev">
-
+        <div class="controls">
+          <button id="prev">
             <i class="fa-solid fa-backward"></i>
+          </button>
 
-        </button>
-
-        <button id="play">
-
+          <button id="play">
             <i class="fa-solid fa-play"></i>
+          </button>
 
-        </button>
-
-        <button id="next">
-
+          <button id="next">
             <i class="fa-solid fa-forward"></i>
+          </button>
+        </div>
 
-        </button>
+        <!-- Volume -->
 
+        <div class="volume">
+          <i class="fa-solid fa-volume-high"></i>
+
+          <input type="range" id="volume" min="0" max="100" value="80" />
+        </div>
+      </main>
     </div>
-
-    <!-- Volume -->
-
-    <div class="volume">
-
-        <i class="fa-solid fa-volume-high"></i>
-
-        <input
-            type="range"
-            id="volume"
-            min="0"
-            max="100"
-            value="80">
-
-    </div>
-
-</main>
-
-    </div>
-   <audio id="audio"></audio>
+    <audio id="audio"></audio>
     <script src="script.js"></script>
-
-</body>
-
+  </body>
 </html>
