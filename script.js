@@ -50,28 +50,31 @@ const songs = [
         audio: "Songs/dilbar.mp3",
         favorite: false
     },
+    {
+    title: " Hamari Adhuri Kahani",
+    artist: "Arjit Sing 2009 ,4min 15 sec",
+    image: "images/Adhuri-kahani.png",
+    audio: "Songs/Adhuri.mp3",
+    favorite: false
+},
 
     {
         title: "Ankhen Uthi Mohabbat Ne Angrai Lee",
 
-        artist: "Nushrat Fate ali Ali Khan , 2014, 4min 37sec",
+        artist: "LUT GAYE , 2014, 4min 37sec",
 
         image: "images/ankhen-uthi.png",
 
         audio: "Songs/Ankhen uthi.mp3",
         favorite: false
     },
-
     {
-        title: "Believer",
-
-        artist: "Imagine Dragons",
-
-        image: "images/believer.png",
-
-        audio: "Songs/believer.mp3",
-        favorite: false
-    }
+    title: "Duniya",
+    artist: "Abjite Vanghu , Akhil , 2019, 1min 37sec",
+    image: "images/Duniya.png",
+    audio: "Songs/Duniya.mp3",
+    favorite: false
+},
 
 ];
 
