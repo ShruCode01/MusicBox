@@ -17,14 +17,14 @@ body{
 
     background:#121212;
 
+
 }
+
 .container{
 
-    width:95%;
+    width:min(95%,1400px);
 
-    max-width:1400px;
-
-    height:90vh;
+    min-height:90vh;
 
     display:flex;
 
@@ -35,23 +35,11 @@ body{
     background:#1b1b2d;
 
 }
-/* .sidebar{ */
-/*  */
-    /* width:300px; */
-/*  */
-    /* background:#101827; */
-/*  */
-/* } */
-/* .player{ */
-/*  */
-    /* flex:1; */
-/*  */
-    /* background:#252540; */
-/*  */
-/* } */
 .sidebar{
 
-    width:300px;
+   width:280px;
+
+    flex-shrink:0;
 
     background:#151928;
 
@@ -262,6 +250,7 @@ body{
 width:min(320px,90vw);
 
 aspect-ratio:1;
+  margin-bottom:30px;
 }
 .album img{
 
@@ -301,7 +290,7 @@ aspect-ratio:1;
 }
 .progress-area{
 
-    width:100%;
+      width:min(900px,100%);
 
     display:flex;
 
@@ -358,7 +347,7 @@ transform:translateY(-3px);
 }
 .volume{
 
-    width:300px;
+      width:min(300px,100%);
 
     display:flex;
 
@@ -382,5 +371,150 @@ transition:.3s;
 .album img:hover{
 
 transform:scale(1.03);
+
+}
+
+
+@media (max-width:992px){
+
+.container{
+
+    flex-direction:column;
+
+    height:auto;
+
+}
+
+.sidebar{
+
+    width:100%;
+
+}
+
+.player{
+
+    width:100%;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.player{
+
+    padding:25px;
+
+}
+
+.album{
+
+    width:220px;
+
+}
+
+.song-details h1{
+
+    font-size:28px;
+
+}
+
+.song-details p{
+
+    font-size:15px;
+
+}
+
+.controls{
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+.controls button{
+
+    width:50px;
+
+    height:50px;
+
+    font-size:18px;
+
+}
+
+}
+
+@media (max-width:480px){
+
+body{
+
+    padding:10px;
+
+}
+
+.container{
+
+    width:100%;
+
+    border-radius:15px;
+
+}
+
+.sidebar{
+
+    padding:20px;
+
+}
+
+.logo{
+
+    justify-content:center;
+
+}
+
+.playlist h3{
+
+    text-align:center;
+
+}
+
+.album{
+
+    width:180px;
+
+}
+
+.song-details h1{
+
+    font-size:24px;
+
+}
+
+.song-details p{
+
+    font-size:14px;
+
+}
+
+.progress-area{
+
+    gap:8px;
+
+}
+
+.progress-area span{
+
+    font-size:13px;
+
+}
+
+.volume{
+
+    width:100%;
+
+}
 
 }
