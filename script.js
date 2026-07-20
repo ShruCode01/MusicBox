@@ -25,6 +25,9 @@ const duration = document.getElementById("duration");
 const volume = document.getElementById("volume");
 
 
+const muteBtn =document.getElementById("mute");
+
+
 // =========================
 // Songs Data
 // =========================
@@ -34,7 +37,7 @@ const songs = [
     {
         title: "DILBAR",
 
-        artist: "Neha Kakkar /IKKA /Divni Bhanushali",
+        artist: "Neha Kakkar /IKKA /Divni Bhanushali 2018, 3min 4sec",
 
         image: "images/dilbar.png",
 
@@ -42,13 +45,13 @@ const songs = [
     },
 
     {
-        title: "Perfect",
+        title: "Ankhen Uthi Mohabbat Ne Angrai Lee",
 
-        artist: "Ed Sheeran",
+        artist: "Nushrat Fate ali Ali Khan , 2014, 4min 37sec",
 
-        image: "images/perfect.png",
+        image: "images/ankhen-uthi.png",
 
-        audio: "Songs/perfect.mp3"
+        audio: "Songs/Ankhen uthi.mp3"
     },
 
     {
@@ -190,5 +193,33 @@ function formatTime(seconds) {
     const secs = Math.floor(seconds % 60);
 
     return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+
+}
+
+
+volume.addEventListener("input", changeVolume);
+
+function changeVolume() {
+
+    audio.volume = volume.value / 100;
+
+}
+muteBtn.addEventListener("click", toggleMute);
+
+function toggleMute() {
+
+    audio.muted = !audio.muted;
+
+    if (audio.muted) {
+
+        muteBtn.innerHTML =
+        '<i class="fa-solid fa-volume-xmark"></i>';
+
+    } else {
+
+        muteBtn.innerHTML =
+        '<i class="fa-solid fa-volume-high"></i>';
+
+    }
 
 }
