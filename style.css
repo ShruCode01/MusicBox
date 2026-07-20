@@ -35,20 +35,20 @@ body{
     background:#1b1b2d;
 
 }
-.sidebar{
-
-    width:300px;
-
-    background:#101827;
-
-}
-.player{
-
-    flex:1;
-
-    background:#252540;
-
-}
+/* .sidebar{ */
+/*  */
+    /* width:300px; */
+/*  */
+    /* background:#101827; */
+/*  */
+/* } */
+/* .player{ */
+/*  */
+    /* flex:1; */
+/*  */
+    /* background:#252540; */
+/*  */
+/* } */
 .sidebar{
 
     width:300px;
@@ -113,25 +113,32 @@ body{
     list-style:none;
 
 }
+
 .song{
 
     display:flex;
 
     align-items:center;
 
-    gap:15px;
+    gap:12px;
 
-    padding:12px;
+    padding:10px 12px;
+
+    margin-bottom:10px;
 
     border-radius:12px;
 
     cursor:pointer;
 
-    margin-bottom:12px;
-
-    transition:.3s;
+    transition:all .3s ease;
 
 }
+
+
+
+
+
+
 .song:hover{
 
     background:#252540;
@@ -143,30 +150,53 @@ body{
     border-radius:10px;
 }
 
-.song img{
+.playlist-img{
 
-    width:55px;
+    width:60px;
 
-    height:55px;
+    height:60px;
 
     object-fit:cover;
 
     border-radius:10px;
 
+    flex-shrink:0;
+
 }
-.song-info h4{
+.playlist-info{
+
+    flex:1;
+
+    overflow:hidden;
+
+}
+
+.playlist-info h4{
 
     color:white;
 
     font-size:15px;
 
+    margin-bottom:4px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
 }
+.playlist-info p{
 
-.song-info p{
-
-    color:#b0b0b0;
+    color:#b5b5b5;
 
     font-size:13px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
 
 }
 .favorite{
@@ -184,6 +214,28 @@ body{
     cursor:pointer;
 
     font-size:15px;
+
+}
+.fav-btn{
+
+    background:none;
+
+    border:none;
+
+    color:#b5b5b5;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+.fav-btn:hover{
+
+    color:#ff4d6d;
+
+    transform:scale(1.2);
 
 }
 
@@ -204,14 +256,12 @@ body{
     padding:40px;
 
 }
+
 .album{
 
-    width:320px;
+width:min(320px,90vw);
 
-    height:320px;
-
-    margin-bottom:30px;
-
+aspect-ratio:1;
 }
 .album img{
 
@@ -289,6 +339,12 @@ body{
     cursor:pointer;
 
     font-size:20px;
+
+}
+
+.controls button:hover{
+
+transform:translateY(-3px);
 
 }
 #play{

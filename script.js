@@ -31,6 +31,7 @@ const muteBtn =document.getElementById("mute");
 const shuffleBtn = document.getElementById("shuffle");
 
 const repeatBtn = document.getElementById("repeat-btn");
+const playlist = document.getElementById("playlist");
 
 
 // =========================
@@ -46,7 +47,8 @@ const songs = [
 
         image: "images/dilbar.png",
 
-        audio: "Songs/dilbar.mp3"
+        audio: "Songs/dilbar.mp3",
+        favorite: false
     },
 
     {
@@ -56,7 +58,8 @@ const songs = [
 
         image: "images/ankhen-uthi.png",
 
-        audio: "Songs/Ankhen uthi.mp3"
+        audio: "Songs/Ankhen uthi.mp3",
+        favorite: false
     },
 
     {
@@ -66,7 +69,8 @@ const songs = [
 
         image: "images/believer.png",
 
-        audio: "Songs/believer.mp3"
+        audio: "Songs/believer.mp3",
+        favorite: false
     }
 
 ];
@@ -247,14 +251,40 @@ function createPlaylist() {
 
         const li = document.createElement("li");
 
-        li.innerHTML = `
-            <img src="${song.image}" class="playlist-img">
+        li.classList.add("song");
 
-            <div class="playlist-info">
-                <h4>${song.title}</h4>
-                <p>${song.artist}</p>
-            </div>
-        `;
+
+        li.innerHTML = `
+<img src="${song.image}" class="playlist-img">
+
+<div class="playlist-info">
+
+<h4>${song.title}</h4>
+
+<p>${song.artist}</p>
+
+</div>
+
+<button class="fav-btn">
+
+${song.favorite ? "❤️" : "🤍"}
+
+</button>
+`;
+
+
+const favBtn = li.querySelector(".fav-btn");
+favBtn.addEventListener("click", (event) => {
+
+    event.stopPropagation();
+
+    song.favorite = !song.favorite;
+
+    saveFavorites();
+
+    createPlaylist();
+
+});
 
         li.addEventListener("click", () => {
 
@@ -376,6 +406,41 @@ function handleSongEnd() {
 
 }
 
+
+function saveFavorites(){
+
+localStorage.setItem(
+
+"favoriteSongs",
+
+JSON.stringify(songs)
+
+);
+
+}
+
+function loadFavorites(){
+
+const savedSongs=
+
+localStorage.getItem("favoriteSongs");
+
+if(savedSongs){
+
+const parsedSongs=
+
+JSON.parse(savedSongs);
+
+parsedSongs.forEach((saved,index)=>{
+
+songs[index].favorite=saved.favorite;
+
+});
+
+}
+
+}
+
 playBtn.addEventListener("click", function () {
 
 
@@ -395,6 +460,13 @@ playBtn.addEventListener("click", function () {
 
 
 });
+
+
+loadFavorites();
+
+createPlaylist();
+
+loadSong(currentSong);
 
 
 audio.addEventListener("ended", handleSongEnd);
