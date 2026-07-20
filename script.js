@@ -32,13 +32,13 @@ const volume = document.getElementById("volume");
 const songs = [
 
     {
-        title: "Blinding Lights",
+        title: "DILBAR",
 
-        artist: "The Weeknd",
+        artist: "Neha Kakkar /IKKA /Divni Bhanushali",
 
-        image: "assets/images/cover1.jpg",
+        image: "images/dilbar.png",
 
-        audio: "assets/songs/song1.mp3"
+        audio: "Songs/dilbar.mp3"
     },
 
     {
@@ -46,9 +46,9 @@ const songs = [
 
         artist: "Ed Sheeran",
 
-        image: "assets/images/cover2.jpg",
+        image: "images/perfect.png",
 
-        audio: "assets/songs/song2.mp3"
+        audio: "Songs/perfect.mp3"
     },
 
     {
@@ -56,9 +56,9 @@ const songs = [
 
         artist: "Imagine Dragons",
 
-        image: "assets/images/cover3.jpg",
+        image: "images/believer.png",
 
-        audio: "assets/songs/song3.mp3"
+        audio: "Songs/believer.mp3"
     }
 
 ];
@@ -77,5 +77,118 @@ function loadSong(index) {
     artist.textContent = songs[index].artist;
 
     audio.src = songs[index].audio;
+
+}
+
+
+
+
+let isPlaying = false;
+
+function playSong() {
+
+    audio.play();
+
+    isPlaying = true;
+
+    playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+
+}
+
+function pauseSong() {
+
+    audio.pause();
+
+    isPlaying = false;
+
+    playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+
+}
+
+playBtn.addEventListener("click", function () {
+
+    if (isPlaying) {
+
+        pauseSong();
+
+    } else {
+
+        playSong();
+
+    }
+
+});
+
+
+function nextSong() {
+
+    currentSong++;
+
+    if (currentSong >= songs.length) {
+        currentSong = 0;
+    }
+
+    loadSong(currentSong);
+
+    playSong();
+}
+
+function prevSong() {
+
+    currentSong--;
+
+    if (currentSong < 0) {
+        currentSong = songs.length - 1;
+    }
+
+    loadSong(currentSong);
+
+    playSong();
+}
+
+function updateProgress() {
+
+    const current = audio.currentTime;
+
+    const total = audio.duration;
+
+    if (!isNaN(total)) {
+
+        progress.value = (current / total) * 100;
+
+        currentTime.textContent = formatTime(current);
+
+        duration.textContent = formatTime(total);
+ }
+
+}
+
+
+function seekSong() {
+
+    const seekTime =
+
+        (progress.value / 100) * audio.duration;
+
+    audio.currentTime = seekTime;
+
+}
+
+nextBtn.addEventListener("click", nextSong);
+
+prevBtn.addEventListener("click", prevSong);
+
+audio.addEventListener("timeupdate", updateProgress);
+progress.addEventListener("input", seekSong);
+
+
+
+function formatTime(seconds) {
+
+    const mins = Math.floor(seconds / 60);
+
+    const secs = Math.floor(seconds % 60);
+
+    return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
 
 }
