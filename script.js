@@ -30,6 +30,8 @@ const muteBtn =document.getElementById("mute");
 
 const shuffleBtn = document.getElementById("shuffle");
 
+const repeatBtn = document.getElementById("repeat-btn");
+
 
 // =========================
 // Songs Data
@@ -73,6 +75,9 @@ let currentSong = 0;
 let isPlaying = false;
 
 let isShuffle = false;
+
+
+let repeatMode = 0;
 
 
 // =========================
@@ -282,6 +287,95 @@ function highlightCurrentSong() {
 
 }
 
+
+
+function changeRepeatMode() {
+
+    repeatMode++;
+
+    if (repeatMode > 2) {
+        repeatMode = 0;
+    }
+
+    updateRepeatButton();
+
+}
+
+
+function updateRepeatButton() {
+
+    repeatBtn.classList.remove("active");
+
+    if (repeatMode === 0) {
+
+        repeatBtn.title = "Repeat Off";
+
+        repeatBtn.innerHTML =
+        '<i class="fa-solid fa-repeat"></i>';
+
+    }
+
+    else if (repeatMode === 1) {
+
+        repeatBtn.title = "Repeat All";
+
+        repeatBtn.classList.add("active");
+
+        repeatBtn.innerHTML =
+        '<i class="fa-solid fa-repeat"></i>';
+
+    }
+
+    else {
+
+        repeatBtn.title = "Repeat One";
+
+        repeatBtn.classList.add("active");
+
+        repeatBtn.innerHTML =
+        '<i class="fa-solid fa-repeat-1"></i>';
+
+    }
+
+}
+
+
+
+
+function handleSongEnd() {
+
+    if (repeatMode === 2) {
+
+        audio.currentTime = 0;
+
+        playSong();
+
+    }
+
+    else if (repeatMode === 1) {
+
+        nextSong();
+
+    }
+
+    else {
+
+        if (currentSong === songs.length - 1) {
+
+            pauseSong();
+
+            audio.currentTime = 0;
+
+        } else {
+
+            nextSong();
+
+        }
+
+    }
+
+}
+
 playBtn.addEventListener("click", function () {
 
 
@@ -303,7 +397,7 @@ playBtn.addEventListener("click", function () {
 });
 
 
-audio.addEventListener("ended", nextSong);
+audio.addEventListener("ended", handleSongEnd);
 
 nextBtn.addEventListener("click", nextSong);
 
@@ -327,3 +421,5 @@ shuffleBtn.addEventListener("click", () => {
     shuffleBtn.classList.toggle("active");
 
 });
+
+repeatBtn.addEventListener("click", changeRepeatMode);

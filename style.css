@@ -316,3 +316,15 @@ body{
     flex:1;
 
 }
+
+.album img{
+
+transition:.3s;
+
+}
+
+.album img:hover{
+
+transform:scale(1.03);
+
+}
