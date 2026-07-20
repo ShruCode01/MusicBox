@@ -28,6 +28,9 @@ const volume = document.getElementById("volume");
 const muteBtn =document.getElementById("mute");
 
 
+const shuffleBtn = document.getElementById("shuffle");
+
+
 // =========================
 // Songs Data
 // =========================
@@ -68,6 +71,8 @@ const songs = [
 
 let currentSong = 0;
 let isPlaying = false;
+
+let isShuffle = false;
 
 
 // =========================
@@ -113,7 +118,28 @@ function pauseSong() {
 
 function nextSong(){
 
+    if (isShuffle) {
+      let randomIndex;
+
+do {
+
+    randomIndex = Math.floor(
+        Math.random() * songs.length
+    );
+
+} while (randomIndex === currentSong);
+
+currentSong = randomIndex;
+
+} else {
+
     currentSong++;
+
+    if (currentSong >= songs.length) {
+        currentSong = 0;
+    }
+
+}
 
     if(currentSong >= songs.length){
         currentSong = 0;
@@ -291,3 +317,13 @@ progress.addEventListener("input", seekSong);
 volume.addEventListener("input", changeVolume);
 
 muteBtn.addEventListener("click", toggleMute);
+
+
+
+shuffleBtn.addEventListener("click", () => {
+
+    isShuffle = !isShuffle;
+
+    shuffleBtn.classList.toggle("active");
+
+});
