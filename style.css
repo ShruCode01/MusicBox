@@ -138,10 +138,11 @@ body{
 
 }
 .active{
-
-    background:#7c5cff;
-
+    background:#6c63ff;
+    color:white;
+    border-radius:10px;
 }
+
 .song img{
 
     width:55px;

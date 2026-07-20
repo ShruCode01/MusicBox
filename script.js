@@ -122,18 +122,22 @@ playBtn.addEventListener("click", function () {
 
 });
 
+audio.addEventListener("ended", nextSong);
 
-function nextSong() {
+function nextSong(){
 
     currentSong++;
 
-    if (currentSong >= songs.length) {
+    if(currentSong >= songs.length){
         currentSong = 0;
     }
 
     loadSong(currentSong);
 
+    highlightCurrentSong();
+
     playSong();
+
 }
 
 function prevSong() {
@@ -221,5 +225,52 @@ function toggleMute() {
         '<i class="fa-solid fa-volume-high"></i>';
 
     }
+
+}
+function createPlaylist() {
+
+    playlist.innerHTML = "";
+
+    songs.forEach((song, index) => {
+
+        const li = document.createElement("li");
+
+        li.innerHTML = `
+            <img src="${song.image}" class="playlist-img">
+
+            <div class="playlist-info">
+                <h4>${song.title}</h4>
+                <p>${song.artist}</p>
+            </div>
+        `;
+
+        li.addEventListener("click", () => {
+
+            currentSong = index;
+
+            loadSong(currentSong);
+
+            playSong();
+
+            highlightCurrentSong();
+
+        });
+
+        playlist.appendChild(li);
+
+    });
+
+}
+
+
+function highlightCurrentSong() {
+
+    const items = document.querySelectorAll("#playlist li");
+
+    items.forEach((item, index) => {
+
+        item.classList.toggle("active", index === currentSong);
+
+    });
 
 }
