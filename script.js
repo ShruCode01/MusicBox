@@ -67,6 +67,9 @@ const songs = [
 ];
 
 let currentSong = 0;
+let isPlaying = false;
+
+
 // =========================
 // Load Song
 // =========================
@@ -86,7 +89,6 @@ function loadSong(index) {
 
 
 
-let isPlaying = false;
 
 function playSong() {
 
@@ -108,21 +110,6 @@ function pauseSong() {
 
 }
 
-playBtn.addEventListener("click", function () {
-
-    if (isPlaying) {
-
-        pauseSong();
-
-    } else {
-
-        playSong();
-
-    }
-
-});
-
-audio.addEventListener("ended", nextSong);
 
 function nextSong(){
 
@@ -181,12 +168,6 @@ function seekSong() {
 
 }
 
-nextBtn.addEventListener("click", nextSong);
-
-prevBtn.addEventListener("click", prevSong);
-
-audio.addEventListener("timeupdate", updateProgress);
-progress.addEventListener("input", seekSong);
 
 
 
@@ -201,14 +182,14 @@ function formatTime(seconds) {
 }
 
 
-volume.addEventListener("input", changeVolume);
+
 
 function changeVolume() {
 
     audio.volume = volume.value / 100;
 
 }
-muteBtn.addEventListener("click", toggleMute);
+
 
 function toggleMute() {
 
@@ -274,3 +255,39 @@ function highlightCurrentSong() {
     });
 
 }
+
+playBtn.addEventListener("click", function () {
+
+
+    if (isPlaying) {
+
+
+        pauseSong();
+
+
+    } else {
+
+
+        playSong();
+
+
+    }
+
+
+});
+
+
+audio.addEventListener("ended", nextSong);
+
+nextBtn.addEventListener("click", nextSong);
+
+
+prevBtn.addEventListener("click", prevSong);
+
+
+audio.addEventListener("timeupdate", updateProgress);
+progress.addEventListener("input", seekSong);
+
+volume.addEventListener("input", changeVolume);
+
+muteBtn.addEventListener("click", toggleMute);
