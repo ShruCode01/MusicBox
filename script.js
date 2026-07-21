@@ -45,7 +45,7 @@ const songs = [
 
         artist: "Neha Kakkar /IKKA /Divni Bhanushali 2018, 3min 4sec",
 
-        image: "images/dilbar.png",
+        image: "Images/dilbar.png",
 
         audio: "Songs/dilbar.mp3",
         favorite: false
@@ -53,7 +53,7 @@ const songs = [
     {
     title: " Hamari Adhuri Kahani",
     artist: "Arjit Sing 2009 ,4min 15 sec",
-    image: "images/Adhuri-kahani.png",
+    image: "Images/Adhuri-kahani.png",
     audio: "Songs/Adhuri.mp3",
     favorite: false
 },
@@ -63,7 +63,7 @@ const songs = [
 
         artist: "LUT GAYE , 2014, 4min 37sec",
 
-        image: "images/ankhen-uthi.png",
+        image: "Images/ankhen-uthi.png",
 
         audio: "Songs/Ankhen uthi.mp3",
         favorite: false
@@ -71,7 +71,7 @@ const songs = [
     {
     title: "Duniya",
     artist: "Abjite Vanghu , Akhil , 2019, 1min 37sec",
-    image: "images/Duniya.png",
+    image: "Images/Duniya.png",
     audio: "Songs/Duniya.mp3",
     favorite: false
 },
